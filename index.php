@@ -12,13 +12,12 @@
 <body>
   <section>
     <article>
-      <h1>Search for a youtube video.</h1>
-      <p>you will get redirected to the first result<p>
+      <h1>Youtube 302</h1>
       <form method="get" action="">
         <fieldset>
-          <label for="q">Search for youtube video:</label>
-          <input name="q" type="text" id="q" size="25" placeholder="Rick Astley"/>
-          <button type="submit">Subscribe</button>
+          <label for="q">Search for a youtube video and get redirected to the first result:</label>
+          <input name="q" type="text" id="q" size="25" placeholder="Rick Astley" autofocus/>
+          <button type="submit">Search & redirect</button>
         </fieldset>
       </form>
     </article>
