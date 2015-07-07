@@ -2,7 +2,8 @@
 require_once "apiKey.php";
 
 if (isset($_GET["q"]) && !empty($_GET["q"])) {
-  $apiURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=viewCount&type=video&key=" . $apiKey . "&q=" . urlencode($_GET["q"]);
+  // https://developers.google.com/youtube/v3/docs/search/list
+  $apiURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=viewCount&type=video&videoDefinition=high&key=" . $apiKey . "&q=" . urlencode($_GET["q"]);
   $apiResult = file_get_contents($apiURL);
   $json = json_decode($apiResult, true);
 
