@@ -1,3 +1,13 @@
+<?php
+require_once "apiKey.php";
+
+if (isset($_GET["q"]) && !empty($_GET["q"])) {
+  $url = "https://www.youtube.com/results?search_query=";
+  header("Location: " . $url);
+  die();
+}
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
