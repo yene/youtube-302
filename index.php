@@ -1,8 +1,7 @@
 <?php
-require_once "apiKey.php";
+require_once "apikey.php";
 
 if (isset($_GET["q"]) && !empty($_GET["q"])) {
-  // https://developers.google.com/youtube/v3/docs/search/list
   $apiURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=viewCount&type=video&videoDefinition=high&key=" . $apiKey . "&q=" . urlencode($_GET["q"]);
   $apiResult = file_get_contents($apiURL);
   $json = json_decode($apiResult, true);
@@ -13,6 +12,7 @@ if (isset($_GET["q"]) && !empty($_GET["q"])) {
     header("Location: " . $url);
     die();
   } else {
+    http_response_code(404);
     die("Error: no video found");
   }
 }
@@ -22,16 +22,14 @@ if (isset($_GET["q"]) && !empty($_GET["q"])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Youtube search</title>
-  <!-- Normalize.css is a customisable CSS file that makes browsers render all elements more consistently and in line with modern standards. -->
-  <link rel="stylesheet" media="screen" href="https://raw.github.com/necolas/normalize.css/master/normalize.css">
-  <link rel="stylesheet" type="text/css" href="//yegor256.github.io/tacit/tacit.min.css"/>
+  <title>Youtube Redirect</title>
+  <link rel="stylesheet" type="text/css" href="tacit.min.css"/>
   </style>
 </head>
 <body>
   <section>
     <article>
-      <h1>Youtube 302</h1>
+      <h1>Youtube Redirect</h1>
       <form method="get" action="">
         <fieldset>
           <label for="q">Search for a youtube video and get redirected to the first result:</label>
